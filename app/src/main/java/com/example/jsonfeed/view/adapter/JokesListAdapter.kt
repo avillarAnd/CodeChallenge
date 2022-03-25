@@ -57,7 +57,7 @@ class JokesListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             newJokesList.filter{ newJoke->
                 jokes.firstOrNull{ item ->
                     item.value?.id == newJoke.id
-                } == null
+                } == null && newJoke.safe
             }.map {
                 AdapterItem(
                     it,
