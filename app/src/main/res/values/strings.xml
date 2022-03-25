@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">JsonFeed</string>
+    <string name="jokes_header">Some jokes</string>
+    <string name="flags_label">Flags</string>
+    <string name="category_label">Category</string>
+    <string name="racist_checkbox_label">Racist</string>
+    <string name="sexist_checkbox_label">Sexist</string>
+    <string name="nsfw_checkbox_label">Nsfw</string>
+    <string name="religious_checkbox_label">Religious</string>
+    <string name="explicit_checkbox_label">Explicit</string>
+    <string name="political_checkbox_label">Political</string>
+</resources>

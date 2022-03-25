@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.jsonfeed.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_jokeDetailsFragment"
+            app:destination="@id/jokeDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jokeDetailsFragment"
+        android:name="com.example.jsonfeed.view.fragment.JokeDetailsFragment"
+        android:label="fragment_joke_details"
+        tools:layout="@layout/fragment_joke_details">
+        <argument
+            android:name="joke"
+            app:argType="com.example.jsonfeed.data.model.Joke" />
+    </fragment>
+
+</navigation>
