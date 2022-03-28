@@ -12,7 +12,7 @@ import com.example.jsonfeed.R
 import com.example.jsonfeed.data.model.Joke
 import com.example.jsonfeed.data.model.JokeFlags
 import com.example.jsonfeed.databinding.FragmentJokeDetailsBinding
-import com.example.jsonfeed.view.App
+import com.example.jsonfeed.App
 import com.example.jsonfeed.viewmodel.JokeDetailsViewModel
 import com.example.jsonfeed.viewmodel.ViewModelFactory
 

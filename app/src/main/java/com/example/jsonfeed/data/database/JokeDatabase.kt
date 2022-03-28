@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities = [FavouriteJoke::class], version = 1, exportSchema = false)
-public abstract class JokeDatabase : RoomDatabase() {
+abstract class JokeDatabase : RoomDatabase() {
     abstract fun favJokeDao(): FavouriteJokeDao
 
     private class JokeDatabaseCallback(

@@ -1,6 +1,5 @@
 package com.example.jsonfeed.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.jsonfeed.data.FavouriteRepository
 import com.example.jsonfeed.data.api.jokeapi.JokeapiApiService
@@ -10,10 +9,7 @@ import com.example.jsonfeed.data.model.Joke
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class HomeViewModel (private val repository: FavouriteRepository) : ViewModel() {
 
@@ -47,7 +43,7 @@ class HomeViewModel (private val repository: FavouriteRepository) : ViewModel() 
                 .observeOn(Schedulers.io())
                 .subscribeWith(object : DisposableSingleObserver<JokeapiApiResponse>(){
                     override fun onSuccess(t: JokeapiApiResponse) {
-                        runBlocking {
+                        viewModelScope.async {
                             t.jokes.forEach {
                                 it.isFavourite = repository.getJokeById(it.id) != null
                             }

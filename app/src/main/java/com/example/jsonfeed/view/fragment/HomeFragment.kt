@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jsonfeed.R
 import com.example.jsonfeed.databinding.FragmentHomeBinding
-import com.example.jsonfeed.view.App
+import com.example.jsonfeed.App
 import com.example.jsonfeed.view.adapter.JokesListAdapter
 import com.example.jsonfeed.view.listener.ItemClickListener
 import com.example.jsonfeed.viewmodel.HomeViewModel

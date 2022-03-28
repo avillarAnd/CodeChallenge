@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import com.example.jsonfeed.view.App
+import com.example.jsonfeed.App
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response

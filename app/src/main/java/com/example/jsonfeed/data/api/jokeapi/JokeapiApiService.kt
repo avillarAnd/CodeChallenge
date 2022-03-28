@@ -4,14 +4,13 @@ import com.example.jsonfeed.data.api.jokeapi.JokeapiApi.Companion.BASE_URL
 import com.example.jsonfeed.data.api.jokeapi.response.JokeapiApiResponse
 import com.example.jsonfeed.utils.interceptors.CacheInterceptor
 import com.example.jsonfeed.utils.interceptors.RewriteCacheInterceptor
-import com.example.jsonfeed.view.App
+import com.example.jsonfeed.App
 import io.reactivex.Single
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 object JokeapiApiService {
     private val api: JokeapiApi

@@ -7,14 +7,14 @@
 
     <application
         android:allowBackup="true"
-        android:name=".view.App"
+        android:name=".App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JsonFeed">
         <activity
-            android:name=".data.model.MainActivity"
+            android:name=".view.MainActivity"
             android:screenOrientation="sensor"
             android:exported="true">
             <intent-filter>

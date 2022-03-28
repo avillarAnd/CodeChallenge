@@ -2,7 +2,6 @@ package com.example.jsonfeed.data
 
 import androidx.annotation.WorkerThread
 import com.example.jsonfeed.data.model.FavouriteJoke
-import kotlinx.coroutines.flow.Flow
 
 class FavouriteRepository (private val favouriteJokeDao: FavouriteJokeDao) {
 
