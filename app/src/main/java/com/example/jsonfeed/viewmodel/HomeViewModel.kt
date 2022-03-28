@@ -43,7 +43,7 @@ class HomeViewModel (private val repository: FavouriteRepository) : ViewModel() 
                 .observeOn(Schedulers.io())
                 .subscribeWith(object : DisposableSingleObserver<JokeapiApiResponse>(){
                     override fun onSuccess(t: JokeapiApiResponse) {
-                        viewModelScope.async {
+                        runBlocking {
                             t.jokes.forEach {
                                 it.isFavourite = repository.getJokeById(it.id) != null
                             }
