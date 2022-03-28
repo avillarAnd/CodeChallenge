@@ -6,10 +6,12 @@ import com.example.jsonfeed.data.api.jokeapi.JokeapiApiService
 import com.example.jsonfeed.data.api.jokeapi.response.JokeapiApiResponse
 import com.example.jsonfeed.data.model.FavouriteJoke
 import com.example.jsonfeed.data.model.Joke
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
+import okhttp3.Dispatcher
 
 class HomeViewModel (private val repository: FavouriteRepository) : ViewModel() {
 
@@ -40,12 +42,14 @@ class HomeViewModel (private val repository: FavouriteRepository) : ViewModel() 
         disposable.add(
             JokeapiApiService.getJokes()
                 .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<JokeapiApiResponse>(){
                     override fun onSuccess(t: JokeapiApiResponse) {
-                        runBlocking {
-                            t.jokes.forEach {
-                                it.isFavourite = repository.getJokeById(it.id) != null
+                        viewModelScope.launch {
+                            withContext(Dispatchers.IO){
+                                t.jokes.forEach {
+                                    it.isFavourite = repository.getJokeById(it.id) != null
+                                }
                             }
                             jokesList.postValue(t.jokes)
                             errorFetchingJokes.postValue(false)
